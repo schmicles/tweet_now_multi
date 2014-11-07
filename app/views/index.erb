@@ -1,0 +1,8 @@
+<div class="container">
+  <p>
+    <% @tweets.each do |tweet| %>
+      "<%= tweet.twitter_user.username %>: <%= tweet.text %>"
+      <hr>
+    <% end %>
+  </p>
+</div>
