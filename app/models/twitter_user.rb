@@ -1,5 +1,4 @@
-class TwitterUser < ActiveRecord::Base
-  # Remember to create a migration!
+class TwitterUser
 
   def self.fetch_tweets!
     $client.user_timeline("sptsdt")
