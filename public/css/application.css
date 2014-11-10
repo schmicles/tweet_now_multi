@@ -24,3 +24,20 @@ h1 {
 body {
   background-color: cyan;
 }
+
+.left_dude{
+  float:left;
+  margin-top: 15px;
+}
+
+.right_stuff{
+  float:left;
+}
+
+.top_stuff{
+  padding: 20px;
+}
+
+.bottom_stuff{
+  padding: 20px;
+}

@@ -23,8 +23,12 @@
 </head>
 <body>
   <div class="container">
-    <img src="http://media.giphy.com/media/zBuQUdIDLCxBC/giphy.gif" width="100px">
-
+    <div class="left_dude">
+      <img src="http://media.giphy.com/media/zBuQUdIDLCxBC/giphy.gif" width="100px">
+    </div>
+    <div class="right_stuff">
+      <div class="top_stuff"><h2>heya <strong><%= TwitterUser.find(session[:twitter_user_id]).username %></strong>!</h2></div>
+      <div class="bottom_stuff">
     <% if session[:twitter_user_id] != nil %>
       <a href="/users"><button type="button" class="btn btn-default navbar-btn">my tweedies</button></a>
 
@@ -33,6 +37,8 @@
         <button type="submit" name="submit" class="btn btn-default">log out</button>
       </form>
     <% end %>
+    </div>
+    </div>
   </div>
 
   <div class="container">
