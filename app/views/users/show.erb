@@ -1,0 +1,55 @@
+<script>
+  $(document).ready(function()
+    {
+      $.ajax({
+          url:'<%= "/tweets" %>',
+          type: "GET",
+          success:function(result)
+          {
+            $("#show_tweets").html(result);
+            $("#loading").hide();
+          },
+          error: function(jqXHR, textStatus, errorThrown)
+          {
+            $("#loading").hide();
+          }
+        });
+      $("#create_new").submit(function(event)
+        {
+          console.log("test")
+          $("#loading").show();
+          var postData = $(this).serializeArray();
+          var formURL = $(this).attr("action");
+          $.ajax(
+          {
+              url : formURL,
+              type: "POST",
+              data : postData,
+              success:function(result)
+              {
+
+                $("#show_tweets").html(result);
+                $("#loading").hide();
+              },
+              error: function(jqXHR, textStatus, errorThrown)
+              {
+                $("#loading").hide();
+              }
+          });
+          event.preventDefault(); //STOP default action
+    });
+  });
+</script>
+
+  <h1><strong><center>TWEET SOMETHING BRO</center></strong></h1>
+    <form id="create_new" role="form" action="/tweets" method="post">
+      <textarea name="post[text]" class="form-control" id="inputText" maxlength="140" placeholder="i think of chicken wings and waffles all day" rows="2"></textarea>
+
+      <button value="submit" class="btn btn-default">tweetdit</button>
+    </form>
+  <hr>
+  <div id="loading">
+    <center><img src="/images/ajax-loader.gif"></img></center>
+  </div>
+  <div id="show_tweets">
+  </div>

@@ -16,6 +16,7 @@ require 'active_record'
 require 'logger'
 
 require 'sinatra'
+require 'oauth'
 
 if development?
   require "sinatra/reloader"
@@ -41,9 +42,6 @@ require APP_ROOT.join('config', 'database')
 
 API_KEYS = YAML::load(File.open('config/api_rahsia.yaml'))
 
-$client = Twitter::REST::Client.new do |config|
-  config.consumer_key        = API_KEYS["development"]["consumer_key_id"]
-  config.consumer_secret     = API_KEYS["development"]["consumer_secret_key_id"]
-  config.access_token        = API_KEYS["development"]["access_token"]
-  config.access_token_secret = API_KEYS["development"]["access_token_secret"]
-  end
+CONSUMER_KEY        = API_KEYS["development"]["consumer_key"]
+CONSUMER_SECRET     = API_KEYS["development"]["consumer_secret_key"]
+CALLBACK_URL        = "http://www.barracooldas.com:9393/oauth/callback"

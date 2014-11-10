@@ -6,13 +6,15 @@
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/normalize.css">
   <!--
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
@@ -21,6 +23,17 @@
 </head>
 <body>
   <div class="container">
+    <img src="http://media1.giphy.com/media/zBuQUdIDLCxBC/200_s.gif"><br>
+
+      <% if session[:twitter_user_id] != nil %>
+        <a href="/users"><button type="button" class="btn btn-default navbar-btn">my tweedies</button></a>
+
+        <form id="logout" action = "/logout" method="post">
+          <input name="_method" value="delete" type="hidden">
+          <button type="submit" name="submit" class="btn btn-default">log out</button>
+        </form>
+      <% end %>
+      <p>
     <%= yield %>
   </div>
 </body>

@@ -17,6 +17,7 @@ gem 'rake'
 
 gem 'shotgun'
 gem 'twitter'
+gem 'oauth'
 gem 'awesome_print'
 
 group :development do

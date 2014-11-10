@@ -1,10 +1,14 @@
 .container {
   margin: 20px auto;
   width: 600px;
-  padding: 0px 50px 50px 50px;
+  padding: 0px 20px 20px 20px;
   border: 2px dotted white;
   background-color: yellow;
 }
 th {
   text-align: left;
+}
+
+form .logout {
+  display: inline;
 }

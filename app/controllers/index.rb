@@ -1,4 +1,4 @@
 get '/' do
 
-  erb :'/tweets/new'
+  erb :'/sessions/new'
 end
