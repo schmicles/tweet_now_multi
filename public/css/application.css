@@ -9,6 +9,18 @@ th {
   text-align: left;
 }
 
-form .logout {
-  display: inline;
+#login {
+  text-align: center;
+}
+
+#logout {
+ display: inline;
+}
+
+h1 {
+  text-align: center;
+}
+
+body {
+  background-color: cyan;
 }
