@@ -4,7 +4,7 @@ class TwitterUser < ActiveRecord::Base
   def fetch_tweets!(twitter_client)
     self.tweets.destroy_all
 
-    twitter_client.user_timeline(self.username, count: 15).each do |pulled_tweet|
+    twitter_client.user_timeline(self.username, count: 10).each do |pulled_tweet|
       self.tweets.create(text: pulled_tweet.text)
     end
   end
@@ -21,17 +21,6 @@ class TwitterUser < ActiveRecord::Base
       config.access_token_secret = oauth_token_secret
     end
     twitter_client
-  end
-
-  def self.find_by_username(username)
-    if TwitterUser.exists?(username: username)
-      user = TwitterUser.find_by(username: username)
-    else
-      user = TwitterUser.new(username: username)
-      if user.save
-        user
-      end
-    end
   end
 
 end

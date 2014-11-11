@@ -37,12 +37,10 @@ get '/oauth/callback' do
   twitter_client = TwitterUser.twitter_client(access_token.token, access_token.secret)
   username = twitter_client.current_user.screen_name
 
-    twitter_user = TwitterUser.new(username: username)
+  twitter_user = TwitterUser.find_or_create_by(username: username)
 
   session[:oauth_token] = access_token.token
   session[:oauth_token_secret] = access_token.secret
-
-  twitter_user.save
   session[:twitter_user_id] = twitter_user.id
 
   redirect "/users"
